@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@1,300&display=swap');
+:root {
+    --color-yellow: #f9c74f;
+    --color-green: #11ab63;
+}
+
+*>* {
+    font-family: 'Source Serif Pro', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    text-align: center;
+    padding: 4em 0;
+}
+
+.bg-yellow {
+    background-color: var(--color-yellow);
+}
+
+.bg-green {
+    background-color: var(--color-green);
+}
+
+.chart .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
