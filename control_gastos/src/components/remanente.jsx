@@ -19,7 +19,7 @@ const Remanente = () => {
 const alertType = totalGastos > presupuesto ? 'bg-red-300' : 'bg-green-100'
 
   return (
-    <div className={`alert rounded-lg p-4 mb-4 text-sm text-green-700 ${alertType}`}>
+    <div className={`alert font-bold rounded-lg p-4 mb-4 text-sm text-green-700 ${alertType}`}>
       <p>Remanente: $<span>{sobrante}</span></p></div>
   )
 }
