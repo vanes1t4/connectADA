@@ -17,15 +17,17 @@ function App() {
         <
         div className = "container mx-auto max-w-6xl text-center drop-shadow-lg text-gray-800" >
         <
-        h1 className = "text-4xl py-8 mb-10 bg-slate-800 text-white rounded" > Control de Gastos < /h1> <
-        div className = "mx-auto max-w-6xl" > < Grafica / > < /div>  <
+        h1 className = "text-4xl py-8 mb-10 bg-purple-800 text-white rounded" > Control de Gastos < /h1>  <
+        Grafica / >
+        <
         div className = 'max-w-2xl' >
         <
-        h3 className = 'mt-3' > Lista de Gastos < /h3>  <
+        h3 className = 'mt-3 mb-3 text-purple-700 font-bold text-2xl bg-purple-300 rounded' > Lista de Gastos < /h3>  <
         ListaGastos / > < /div>  <
         div >
         <
         button className = 'new-btn'
+        title = 'Agregar un gasto'
         onClick = {
             () => setButtonPopup(true)
         } > < AiFillPlusCircle size = { 70 }

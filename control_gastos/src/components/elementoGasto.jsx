@@ -14,13 +14,13 @@ const eliminandoGasto = () => {
 }
 
   return (
-    <li className='list-group-item d-flex justify-content-between mb-2 select-none rounded-l-lg border-l-4 border-purple-400 bg-purple-100 p-4 font-medium hover:border-purple-500'>
-      {props.nombre}
-        <span className='font-bold bg-purple-300 rounded-lg'>
+    <li className='flex justify-between pl-2 text-lg mb-2 rounded-l-lg border-l-4 border-purple-400 bg-purple-100 hover:border-purple-500'>
+      {props.categoria +` --- `+ props.nombre}
+        <span className='font-bold bg-purple-300 rounded-lg px-5 pt-2'>
           ${props.monto}
         </span>
-        <button className='px-30'>
-        <TiDelete size='40' onClick={eliminandoGasto}/></button>
+        <button className='py-1' title='Eliminar registro'>
+        <TiDelete size='40' color='red' onClick={eliminandoGasto}/></button>
     
     </li>
   )

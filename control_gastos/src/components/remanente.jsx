@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{ useState, useContext} from 'react'
 import { AppContext} from '../context/AppContext'
 
 const Remanente = () => {
@@ -14,12 +14,25 @@ const Remanente = () => {
     return (total)
   },0);
 
-  const sobrante = presupuesto - totalGastos;
+const sobrante = presupuesto - totalGastos
 
-const alertType = totalGastos > presupuesto ? 'bg-red-300' : 'bg-green-100'
+  let porcentaje = useState(0)
+    if(presupuesto>0){
+    porcentaje = (totalGastos/presupuesto)*100;
+  } 
+  //poniendo colores segun el porcentaje
+  let alertType
+  if(porcentaje<50){
+    alertType = 'bg-green-100 text-green-700'
+  }else
+   if(porcentaje<80){
+    alertType = 'bg-yellow-300 text-yellow-800'
+   } else{
+    alertType = 'bg-red-300 text-red-900'
+   }
 
   return (
-    <div className={`alert font-bold rounded-lg p-4 mb-4 text-sm text-green-700 ${alertType}`}>
+    <div className={`alert font-bold rounded-lg p-4 mb-4 text-lg ${alertType}`}>
       <p>Remanente: $<span>{sobrante}</span></p></div>
   )
 }

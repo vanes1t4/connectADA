@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import { AppContext } from '../context/AppContext'
 import { Doughnut } from 'react-chartjs-2'
 import { Chart, ArcElement } from 'chart.js'
 import Presupuesto from '../components/presupuesto'
@@ -7,36 +8,57 @@ import Gastado from '../components/gastoTotal'
 
 Chart.register(ArcElement)
 
-const config = {
+export default function Grafica() {
+
+  const {gastos,presupuesto} = useContext(AppContext)
+  const totalGastos = gastos.reduce((total, item) => {
+    return(total += item.monto)
+  },0)
+  
+  let porcentaje = useState(0)
+  if(presupuesto>0){
+    porcentaje = (totalGastos/presupuesto)*100;
+  } 
+
+  //poniendo colores segun el porcentaje
+  let bga
+  if(porcentaje<50){
+    bga = 'rgba(134,239,172)'
+  }else
+   if(porcentaje<80){
+    bga = 'rgba(234,179,8)'
+   } else{
+    bga = 'red'
+   }
+
+//actualizando los valores en config
+let config = {
   data: {
     datasets: [{
-      data: [300, 50, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 4,
-      borderRadius: 20,
+      data: [porcentaje],
+      backgroundColor: [bga],
+      hoverOffset: 2,
+      borderRadius: 10,
       spacing: 5
     }]
   },
   options: {
-    cutout: 115
+    cutout: 90,
+    responsive: true,
+    maintainAspectRatio: false
   }
 }
 
-export default function Grafica() {
   return (
     
-      <div className="flex justify-content max-w-xs mx-auto" >
-        <div className="grid col-span-2" >
-          <div className="chart relative">
+      <div className="w-full max-w-6lg" >
+        <div className="flex flex-wrap mx-3 mb-6" >
+          <div className="chart relative mx-auto md:w-1/2 px-3 mb-6 md:mb-0 h-60 ">
             <Doughnut {...config}></Doughnut>
-            <h3 className='mb-4 font-bold title'>Gastado:
-            <span className='block text-3xl text-emerald-400'>${0}</span></h3>
+            <h3 className='font-bold absolute bottom-1/2 left-1/5 text-blue-700 '>Gastado:
+            <span className='block text-3xl text-blue-700'>{porcentaje}%</span></h3>
           </div>
-          <div className='py-10 gap-4' >
+          <div className='mx-auto md:w-1/2 px-3' >
             <div className='col-sm' > < Presupuesto /> </div>
             <div className='col-sm' > < Remanente /> </div>
             <div className='col-sm' > < Gastado /> </div>

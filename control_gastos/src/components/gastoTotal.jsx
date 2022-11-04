@@ -10,7 +10,7 @@ const totalGastos = gastos.reduce((total, item) => {
 },0)
 
   return (
-    <div className='alert bg-blue-100 rounded-lg p-4 mb-4 text-sm text-blue-700 font-bold'>
+    <div className='alert bg-blue-100 rounded-lg p-4 mb-4 text-lg text-blue-700 font-bold'>
       <p>Gasto Total: $<span>{totalGastos}</span></p></div>
   )
 }

@@ -2,6 +2,11 @@ import { createContext, useReducer } from "react";
 
 const AppReducer = (state, action) => {
     switch (action.type) {
+        case 'ADD_BUDGET':
+            return {
+                ...state,
+                presupuesto: action.payload,
+            }
         case 'ADD_EXPENSE':
             return {
                 ...state,
@@ -20,8 +25,9 @@ const AppReducer = (state, action) => {
 const initialState = {
     presupuesto: 2000,
     gastos: [
-        { id: 6, nombre: 'Escuela', monto: 400, key: 6 },
-        { id: 7, nombre: 'Transporte', monto: 67, key: 7 },
+        { id: 6, categoria: 'Membresia', nombre: 'Escuela', monto: 400, key: 6 },
+        { id: 4, categoria: 'Alimento', nombre: 'Tacos', monto: 570, key: 4 },
+        { id: 7, categoria: 'Transporte', nombre: 'Transporte', monto: 670, key: 7 },
     ]
 };
 

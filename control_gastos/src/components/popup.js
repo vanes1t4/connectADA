@@ -1,21 +1,19 @@
 import React from 'react'
 import { CgCloseR } from 'react-icons/cg'
 import Formulario from './formulario'
-
+import PresupuestoInicial from './presupInicial'
 
 function Popup(props) {
+
     return (props.trigger) ? ( <
         div className = 'popup' >
         <
         div className = 'popup-inner' >
         <
-        h2 className = 'font-bold pb-4 text-xl' > Registrar Gasto < /h2> <
-        div className = 'form' >
-        <
         Formulario / >
         <
-        /
-        div > <
+        PresupuestoInicial / >
+        <
         /div> <
         button className = 'close-btn'
         onClick = {

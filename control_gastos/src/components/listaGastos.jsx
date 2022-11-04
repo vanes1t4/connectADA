@@ -8,7 +8,7 @@ const ListaGastos = () => {
   return (
     <ul>
       { gastos.map((gasto) => (
-        <ElementoGasto id={gasto.id} nombre={gasto.nombre} monto={gasto.monto} key={gasto.id} />
+        <ElementoGasto id={gasto.id} categoria={gasto.categoria} nombre={gasto.nombre} monto={gasto.monto} key={gasto.id} />
       ))}
     </ul>
   )
