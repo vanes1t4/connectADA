@@ -8,8 +8,8 @@ const Formulario = () => {
 
   const [reg_gasto, setReg_gasto] = useState('')
   const [reg_monto, setReg_monto] = useState('')
-  const [reg_categoria, setReg_categoria] = useState('Todas las categorias')
-
+  const [reg_categoria, setReg_categoria] = useState('')
+  
 const onSubmit = (event) => {
   event.preventDefault();
 
@@ -27,6 +27,7 @@ const onSubmit = (event) => {
     type: 'ADD_EXPENSE',
     payload: gasto,
   })
+
 }
 
   return (
@@ -69,7 +70,7 @@ const onSubmit = (event) => {
           id='reg_categoria'
           required='required'
           className='shadow appearance-none border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline'
-          onSelect={(event) => { setReg_categoria(event.target.value) }}
+          onChange={(event) => { setReg_categoria(event.target.value) }}
           >
             <option value="Todas las categorias" >-- Todas las categorias --</option>
             <option value="Alimento">Alimento</option>

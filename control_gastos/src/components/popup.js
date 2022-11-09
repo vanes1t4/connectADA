@@ -1,7 +1,6 @@
 import React from 'react'
 import { CgCloseR } from 'react-icons/cg'
 import Formulario from './formulario'
-import PresupuestoInicial from './presupInicial'
 
 function Popup(props) {
 
@@ -11,8 +10,6 @@ function Popup(props) {
         div className = 'popup-inner' >
         <
         Formulario / >
-        <
-        PresupuestoInicial / >
         <
         /div> <
         button className = 'close-btn'
